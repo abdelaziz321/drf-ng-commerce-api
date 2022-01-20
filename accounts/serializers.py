@@ -5,7 +5,7 @@ from django.contrib.auth.hashers import make_password
 
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField(required=True)
-    password = serializers.CharField(required=True)
+    password = serializers.CharField(required=True, min_length=6)
 
 
 class UserSerializer(serializers.ModelSerializer):

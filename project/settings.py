@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # Third Party Apps
     'rest_framework',
+    'corsheaders',
 
     # Local Apps
     'accounts',
@@ -79,6 +80,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CORS_ALLOWED_ORIGINS = ['http://127.0.0.1:4200']
+
 AUTH_USER_MODEL = 'accounts.Account'
 
 # https://django-rest-framework-simplejwt.readthedocs.io/en/latest/index.html
@@ -100,6 +103,7 @@ SIMPLE_JWT = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
